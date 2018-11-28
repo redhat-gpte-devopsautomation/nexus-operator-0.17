@@ -26,7 +26,7 @@ Perform the following tasks as *cluster-admin*:
 +
 [source,sh]
 ----
-oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/crds/gogs_v1alpha1_nexus_crd.yaml
+oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/crds/gpte_v1alpha1_nexus_crd.yaml
 ----
 
 . Deploy the `nexus-admin-rules` Cluster Role (which will be granted automatically to everyone with `admin` privileges):
