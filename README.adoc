@@ -44,7 +44,7 @@ The next steps work either as *cluster-admin* or as a *regular user*.
 +
 [source,sh]
 ----
-oc new-project Nexus --display-name "Nexus"
+oc new-project nexus --display-name "Nexus"
 ----
 
 . Deploy the *nexus-operator* service account:
@@ -136,10 +136,17 @@ The Operator adds ownerReference fields to all created objects - which means tha
 
 == Uninstalling the Nexus Operator
 
-In case you wish to uninstall the Nexus Operator make sure that there are no more projects using the nexus operator. Then as *cluster-admin* delete the ClusterRole and Custom Resource:
+In case you wish to uninstall the Nexus Operator make sure that there are no more nexus instances running. Once all Nexus instances have been deleted simply delete the project the operator is running in.
 
 [source,sh]
 ----
-oc delete ClusterRole nexus-admin-rules
-oc delete CRD nexus.gpte.opentlc.com
+oc delete project nexus
+----
+
+Then as *cluster-admin* delete the ClusterRole and Custom Resource:
+
+[source,sh]
+----
+oc delete clusterrole nexus-admin-rules
+oc delete crd nexus.gpte.opentlc.com
 ----
