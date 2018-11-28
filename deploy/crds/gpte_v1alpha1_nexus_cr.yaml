@@ -1,7 +1,7 @@
 apiVersion: gpte.opentlc.com/v1alpha1
 kind: Nexus
 metadata:
-  name: example-nexus
+  name: nexus-repository
 spec:
-  # Add fields here
-  size: 3
+  nexusVolumeSize: 5Gi
+  nexusSsl: True
