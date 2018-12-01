@@ -106,7 +106,7 @@ oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/d
 +
 [source,sh]
 ----
-oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/role_binding.yaml
+oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/rolebinding.yaml
 ----
 
 . And finally create the Nexus *Operator*:
