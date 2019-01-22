@@ -23,6 +23,7 @@ rules:
   - gpte.opentlc.com
   resources:
   - nexus
+  - nexus/status
   verbs:
   - create
   - update
