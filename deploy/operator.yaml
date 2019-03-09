@@ -15,7 +15,7 @@ spec:
       serviceAccountName: nexus-operator
       containers:
         - name: nexus-operator
-          image: quay.io/wkulhanek/nexus-operator:v0.0.4
+          image: quay.io/wkulhanek/nexus-operator:v0.0.5
           ports:
           - containerPort: 60000
             name: metrics
