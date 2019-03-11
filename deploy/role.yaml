@@ -1,6 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
+  creationTimestamp: null
   name: nexus-operator
 rules:
 - apiGroups:
@@ -14,13 +15,7 @@ rules:
   - configmaps
   - secrets
   verbs:
-  - create
-  - update
-  - delete
-  - get
-  - list
-  - watch
-  - patch
+  - '*'
 - apiGroups:
   - ""
   resources:
@@ -28,17 +23,14 @@ rules:
   verbs:
   - get
 - apiGroups:
-  - route.openshift.io
+  - apps
   resources:
-  - routes
+  - deployments
+  - daemonsets
+  - replicasets
+  - statefulsets
   verbs:
-  - create
-  - update
-  - delete
-  - get
-  - list
-  - watch
-  - patch
+  - '*'
 - apiGroups:
   - monitoring.coreos.com
   resources:
@@ -49,13 +41,6 @@ rules:
 - apiGroups:
   - gpte.opentlc.com
   resources:
-  - nexus
-  - nexus/status
+  - '*'
   verbs:
-  - create
-  - update
-  - delete
-  - get
-  - list
-  - watch
-  - patch
+  - '*'
