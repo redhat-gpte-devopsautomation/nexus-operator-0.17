@@ -8,5 +8,5 @@ cp ansible-operator-roles/playbooks/nexus.yaml ./playbook.yml
 rm -rf ansible-operator-roles
 
 # Now build the Operator
-operator-sdk build quay.io/wkulhanek/nexus-operator:v0.0.5
-docker push quay.io/wkulhanek/nexus-operator:v0.0.5
+operator-sdk build quay.io/wkulhanek/nexus-operator:v0.0.6
+docker push quay.io/wkulhanek/nexus-operator:v0.0.6
