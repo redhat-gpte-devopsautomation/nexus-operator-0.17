@@ -3,5 +3,10 @@ kind: Nexus
 metadata:
   name: example-nexus
 spec:
-  # Add fields here
-  size: 3
+  nexusVolumeSize: 10Gi
+  nexusSsl: True
+  nexusImageTag: latest
+  nexusCpuRequest: 1
+  nexusCpuLimit: 2
+  nexusMemoryRequest: 2Gi
+  nexusMemoryLimit: 2Gi

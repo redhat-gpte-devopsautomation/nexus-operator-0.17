@@ -77,6 +77,7 @@ oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/d
 
 . Once the Operator pod is running the Operator is ready to start creating Nexus Servers.
 
+////
 === Local Installation in a Project
 
 The next steps work either as *cluster-admin* or as a *regular user*.
@@ -117,6 +118,7 @@ oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/d
 ----
 
 . Once the Operator pod is running the Operator is ready to start creating Nexus instances.
+////
 
 == Deploying a Nexus instance using the Operator
 
@@ -135,8 +137,14 @@ kind: Nexus
 metadata:
   name: nexus-repository
 spec:
-  nexusVolumeSize: 5Gi
+  nexusVolumeSize: 10Gi
+  # Each of the following variables is optional
   nexusSsl: True
+  nexusImageTag: latest
+  nexusCpuRequest: 1
+  nexusCpuLimit: 2
+  nexusMemoryRequest: 2Gi
+  nexusMemoryLimit: 2Gi
 ----
 
 . Write the definition to a file (e.g. nexus-server.yaml) and then create the Nexus instance:
