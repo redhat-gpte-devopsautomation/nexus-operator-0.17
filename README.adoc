@@ -61,7 +61,7 @@ oc new-project gpte-operators --display-name="GPTE Operators"
 oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/service_account.yaml
 ----
 
-. Grant the *nexus-cluster-operator* role to the *nexus-operator* service account (if your project is not `gpte-operators` change the project name in the command):
+. Grant the *nexus-operator* cluster role to the *nexus-operator* service account (if your project is not `gpte-operators` change the project name in the command):
 +
 [source,sh]
 ----
