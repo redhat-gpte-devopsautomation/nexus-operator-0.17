@@ -29,7 +29,7 @@ Perform the following tasks as *cluster-admin*:
 oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/crds/gpte_v1alpha1_nexus_crd.yaml
 ----
 
-. Deploy the `nexus-admin-rules` Cluster Role (which will be granted automatically to everyone with `admin` privileges):
+. If you want to enable deployment of the nexus operator for regular users deploy the `nexus-admin-rules` Cluster Role (which will be granted automatically to everyone with `admin` privileges). You may skip this step if you are deploying a clusterwide operator as a user with cluster-admin privileges:
 +
 [source,sh]
 ----
