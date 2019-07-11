@@ -20,7 +20,7 @@ spec:
           - /tmp/ansible-operator/runner
           - stdout
           # Replace this with the built image name
-          image: quay.io/redhattraining/nexus-operator:v0.8.2
+          image: quay.io/gpte-devops-automation/nexus-operator:v0.8.1
           imagePullPolicy: Always
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner
@@ -28,7 +28,7 @@ spec:
             readOnly: true
         - name: operator
           # Replace this with the built image name
-          image: quay.io/redhattraining/nexus-operator:v0.8.2
+          image: quay.io/gpte-devops-automation/nexus-operator:v0.8.1
           imagePullPolicy: Always
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner
