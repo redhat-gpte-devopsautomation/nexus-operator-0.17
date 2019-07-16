@@ -65,7 +65,7 @@ oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/d
 +
 [source,sh]
 ----
-oc adm policy add-cluster-role-to-user nexus-cluster-operator system:serviceaccount:gpte-operators:nexus-operator
+oc adm policy add-cluster-role-to-user nexus-operator system:serviceaccount:gpte-operators:nexus-operator
 ----
 
 . And finally create the Nexus *Operator*:
@@ -122,12 +122,12 @@ oc create -f https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/d
 
 == Deploying a Nexus instance using the Operator
 
-A Nexus instance is deployed by creating a Custom Resource based on the Nexus Custom Resource Definition. There is an example of a Nexus CR at https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/crds/nexus_v1alpha1_nexus_cr.yaml.
+A Nexus instance is deployed by creating a Custom Resource based on the Nexus Custom Resource Definition. There is an example of a Nexus CR at https://raw.githubusercontent.com/wkulhanek/nexus-operator/master/deploy/crds/gpte_v1alpha1_nexus_cr.yaml.
 
 The Nexus Operator understands the following settings under it's *spec* setting:
 
-* nexusVolumeSize: The size of the Persistent Volume to be created for the Nexus repositories (e.g. 4Gi)
-* nexusSsl: Weather the created route should be a HTTP (false) or HTTPS (true) route.
+* `nexusVolumeSize`: The size of the Persistent Volume to be created for the Nexus repositories (e.g. 4Gi)
+* `nexusSsl`: Weather the created route should be a HTTP (false) or HTTPS (true) route.
 
 .Example
 [source,texinfo]
