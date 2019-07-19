@@ -2,7 +2,7 @@
 # Update latest Roles
 rm -rf roles
 mkdir roles
-git clone https://github.com/jimrigsbee/ansible-operator-roles
+git clone https://github.com/redhat-gpte-devopsautomation/ansible-operator-roles
 cp -R ansible-operator-roles/roles/nexus-ocp ./roles
 cp ansible-operator-roles/playbooks/nexus.yaml ./playbook.yml
 rm -rf ansible-operator-roles
