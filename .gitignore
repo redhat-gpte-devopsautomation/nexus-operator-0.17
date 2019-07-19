@@ -2,3 +2,5 @@
 roles/*
 playbook.yml
 .DS_Store
+client
+*.tar.gz
