@@ -12,7 +12,7 @@ tar xzf openshift-client-linux-4.1.6.tar.gz -C client
 rm -f openshift-client-linux-4.1.6.tar.gz
 
 # Now build the Operator
-operator-sdk build quay.io/gpte-devops-automation/nexus-operator:v0.8.1
-docker push quay.io/gpte-devops-automation/nexus-operator:v0.8.1
+operator-sdk build quay.io/gpte-devops-automation/nexus-operator:v0.9.0
+docker push quay.io/gpte-devops-automation/nexus-operator:v0.9.0
 
 rm -fr client
