@@ -1,18 +1,26 @@
 #!/bin/bash
 # Update latest Roles
+SDK_RELEASE=v0.9
+MINOR_RELEASE=0
+OCP_CLIENT_RELEASE=4.1.6
+
 rm -rf roles
 mkdir roles
 git clone https://github.com/redhat-gpte-devopsautomation/ansible-operator-roles
 cp -R ansible-operator-roles/roles/nexus-ocp ./roles
 cp ansible-operator-roles/playbooks/nexus.yaml ./playbook.yml
 rm -rf ansible-operator-roles
-wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.1.6/openshift-client-linux-4.1.6.tar.gz
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_CLIENT_RELEASE}/openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz
 mkdir client
-tar xzf openshift-client-linux-4.1.6.tar.gz -C client
-rm -f openshift-client-linux-4.1.6.tar.gz
+tar xzf openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz -C client
+rm -f openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz
 
 # Now build the Operator
-operator-sdk build quay.io/gpte-devops-automation/nexus-operator:v0.9.0
-docker push quay.io/gpte-devops-automation/nexus-operator:v0.9.0
+operator-sdk build quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE}
+docker tag quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE} quay.io/gpte-devops-automation/nexus-operator:latest
+docker tag quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE} quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}
+docker push quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE}
+docker push quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}
+docker push quay.io/gpte-devops-automation/nexus-operator:latest
 
 rm -fr client
