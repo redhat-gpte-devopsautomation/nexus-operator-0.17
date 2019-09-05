@@ -1,15 +1,17 @@
 #!/bin/bash
-# Update latest Roles
-SDK_RELEASE=v0.9
-MINOR_RELEASE=0
-OCP_CLIENT_RELEASE=4.1.6
+SDK_RELEASE=v0.10
+MINOR_RELEASE=1
+OCP_CLIENT_RELEASE=4.1.13
 
+# Update latest Roles
 rm -rf roles
 mkdir roles
 git clone https://github.com/redhat-gpte-devopsautomation/ansible-operator-roles
 cp -R ansible-operator-roles/roles/nexus-ocp ./roles
 cp ansible-operator-roles/playbooks/nexus.yaml ./playbook.yml
 rm -rf ansible-operator-roles
+
+# Get OpenShift Client
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/${OCP_CLIENT_RELEASE}/openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz
 mkdir client
 tar xzf openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz -C client
