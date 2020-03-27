@@ -6,12 +6,6 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - pods/exec
-  verbs:
-  - create
-- apiGroups:
-  - ""
-  resources:
   - pods
   - services
   - services/finalizers
@@ -33,9 +27,7 @@ rules:
   - apps
   resources:
   - deployments
-  - daemonsets
   - replicasets
-  - statefulsets
   verbs:
   - create
   - delete
@@ -51,6 +43,7 @@ rules:
   verbs:
   - get
   - create
+
 - apiGroups:
   - apps
   resourceNames:
@@ -59,12 +52,20 @@ rules:
   - deployments/finalizers
   verbs:
   - update
+
 - apiGroups:
-  - ""
+  - gpte.opentlc.com
   resources:
-  - pods
+  - '*'
   verbs:
+  - create
+  - delete
   - get
+  - list
+  - patch
+  - update
+  - watch
+
 - apiGroups:
   - route.openshift.io
   resources:
@@ -79,21 +80,8 @@ rules:
   - watch
   - patch
 - apiGroups:
-  - apps
+  - ""
   resources:
-  - replicasets
-  - deployments
-  verbs:
-  - get
-- apiGroups:
-  - gpte.opentlc.com
-  resources:
-  - '*'
+  - pods/exec
   verbs:
   - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch

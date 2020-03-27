@@ -1,0 +1,1 @@
+operator-sdk new --type ansible --generate-playbook --api-version gpte.opentlc.com/v1alpha1 --kind Nexus nexus-operator

@@ -2,5 +2,5 @@
 - version: v1alpha1
   group: gpte.opentlc.com
   kind: Nexus
-  playbook: /opt/ansible/playbook.yml
+  playbook: playbook.yml
   reconcilePeriod: 120s
