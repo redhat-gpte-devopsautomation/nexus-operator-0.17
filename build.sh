@@ -8,11 +8,6 @@ rm -rf roles
 mkdir roles
 git clone https://github.com/redhat-gpte-devopsautomation/ansible-operator-roles
 
-# Remove after fixed
-cd ansible-operator-roles
-git checkout update_nexus
-cd ..
-
 cp -R ansible-operator-roles/roles/nexus-ocp ./roles
 cp ansible-operator-roles/playbooks/nexus.yaml ./playbook.yml
 rm -rf ansible-operator-roles
