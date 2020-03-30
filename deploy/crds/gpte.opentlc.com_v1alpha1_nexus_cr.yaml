@@ -5,6 +5,7 @@ metadata:
 spec:
   nexusVolumeSize: 10Gi
   nexusSsl: True
+  nexusImage: registry.connect.redhat.com/sonatype/nexus-repository-manager
   nexusImageTag: latest
   nexusCpuRequest: 1
   nexusCpuLimit: 2
