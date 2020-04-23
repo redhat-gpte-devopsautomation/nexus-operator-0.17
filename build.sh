@@ -1,7 +1,7 @@
 #!/bin/bash
-SDK_RELEASE=v0.16
+SDK_RELEASE=v0.17
 MINOR_RELEASE=0
-OCP_CLIENT_RELEASE=4.3.8
+OCP_CLIENT_RELEASE=4.3.13
 
 # Update latest Roles
 rm -rf roles

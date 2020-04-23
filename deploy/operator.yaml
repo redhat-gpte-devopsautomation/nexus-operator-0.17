@@ -16,16 +16,14 @@ spec:
       serviceAccountName: nexus-operator
       containers:
       - name: nexus-operator
-        image: quay.io/gpte-devops-automation/nexus-operator:v0.16
+        image: quay.io/gpte-devops-automation/nexus-operator:v0.17
         imagePullPolicy: "Always"
         volumeMounts:
         - mountPath: /tmp/ansible-operator/runner
           name: runner
         env:
         - name: WATCH_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+          value: ""
         - name: POD_NAME
           valueFrom:
             fieldRef:
@@ -35,5 +33,5 @@ spec:
         - name: ANSIBLE_GATHERING
           value: explicit
       volumes:
-        - name: runner
-          emptyDir: {}
+      - name: runner
+        emptyDir: {}

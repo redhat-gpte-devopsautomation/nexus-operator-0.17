@@ -23,6 +23,7 @@ rules:
   - patch
   - update
   - watch
+
 - apiGroups:
   - apps
   resources:
@@ -36,6 +37,21 @@ rules:
   - patch
   - update
   - watch
+
+- apiGroups:
+  - route.openshift.io
+  resources:
+  - routes
+  - routes/custom-host
+  verbs:
+  - create
+  - update
+  - delete
+  - get
+  - list
+  - watch
+  - patch
+
 - apiGroups:
   - monitoring.coreos.com
   resources:
@@ -65,23 +81,3 @@ rules:
   - patch
   - update
   - watch
-
-- apiGroups:
-  - route.openshift.io
-  resources:
-  - routes
-  - routes/custom-host
-  verbs:
-  - create
-  - update
-  - delete
-  - get
-  - list
-  - watch
-  - patch
-- apiGroups:
-  - ""
-  resources:
-  - pods/exec
-  verbs:
-  - create
