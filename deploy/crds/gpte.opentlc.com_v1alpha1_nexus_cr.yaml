@@ -3,23 +3,53 @@ kind: Nexus
 metadata:
   name: example-nexus
 spec:
-  nexusVolumeSize: 10Gi
-  nexusSsl: True
+  # Which container image to use. Default is:
   nexusImage: registry.connect.redhat.com/sonatype/nexus-repository-manager
-  nexusImageTag: latest
+  # Which tag to use.
+  # `latest` is not supported due to the frequent changes in Nexus container images
+  # 3.24.0 is the earliest supported release do to API changes in 3.24.0
+  nexusImageTag: 3.24.0-ubi-1
+
+  # Size of the PVC to hold Nexus Data
+  nexusVolumeSize: 10Gi
+
+  # Create a HTTPS route for Nexus
+  nexusSsl: true
+
+  # Set a specific route URL for Nexus
+  # nexusRoute: nexus.apps.clusterdomain
+
+  # Set a specific route URL for container registry
+  # nexusRegistryRoute: registry.apps.clusterdomain
+
+  # Resource Requests
   nexusCpuRequest: 4
   nexusCpuLimit: 4
   nexusMemoryRequest: 2Gi
   nexusMemoryLimit: 2Gi
 
-  nexus_repos_maven_proxy:
+  # Set Admin Password
+  nexusNewAdminPassword: redhat
+
+  # Enable Anonymous read access to repositories
+  nexusEnableAnonymous: true
+
+  # Delete default repositories
+  nexusReposDeleteDefault: true
+
+  # Repositories to be set up
+  # Set up this particular repository
+  nexusReposMavenProxySetup: true
+  # Details of what to set up
+  nexusReposMavenProxy:
   - name: maven-central
     remote_url: https://repo1.maven.org/maven2/
     blob_store: default
     strict_content_validation: true
     version_policy: release # release, snapshot or mixed
     layout_policy: strict # strict or permissive
-  - name: redhat-ga
+  # Do not use `redhat` in your repository name. Somehow that gets converted into *****
+  - name: rh-ga
     remote_url: https://maven.repository.redhat.com/ga/
     blob_store: default
     strict_content_validation: true
@@ -32,39 +62,44 @@ spec:
     version_policy: release # release, snapshot or mixed
     layout_policy: strict # strict or permissive
 
-  nexus_repos_maven_hosted:
+  nexusReposMavenHostedSetup: true
+  nexusReposMavenHosted:
   - name: releases
     blob_store: default
-    write_policy: allow_once
+    write_policy: allow_once # allow_once or allow
     strict_content_validation: true
     version_policy: release # release, snapshot or mixed
     layout_policy: strict # strict or permissive
 
-  nexus_repos_maven_group:
+  nexusReposMavenGroupSetup: true
+  nexusReposMavenGroup:
   - name: maven-all-public
     blob_store: default
     strict_content_validation: true
     member_repos:
     - maven-central
-    - redhat-ga
+    - rh-ga
     - jboss
 
-  nexus_repos_docker_hosted:
+  nexusReposDockerHostedSetup: true
+  nexusReposDockerHosted:
   - name: docker
     http_port: 5000
     https_port: 5001
-    v1_enabled: True
+    v1_enabled: true
     blob_store: default
     strict_content_validation: true
     write_policy: allow_once # allow_once or allow
 
-  nexus_repos_npm_proxy:
+  nexusReposNpmProxySetup: true
+  nexusReposNpmProxy:
   - name: npm
     remote_url: https://registry.npmjs.org
     blob_store: default
     strict_content_validation: true
 
-  nexus_repos_npm_group:
+  nexusReposNpmGroupSetup: true
+  nexusReposNpmGroup:
   - name: npm-all
     blob_store: default
     strict_content_validation: true

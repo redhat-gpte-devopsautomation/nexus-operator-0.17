@@ -16,7 +16,7 @@ spec:
       serviceAccountName: nexus-operator
       containers:
       - name: nexus-operator
-        image: quay.io/gpte-devops-automation/nexus-operator:v0.17
+        image: quay.io/gpte-devops-automation/nexus-operator:v0.17.1
         imagePullPolicy: "Always"
         volumeMounts:
         - mountPath: /tmp/ansible-operator/runner
