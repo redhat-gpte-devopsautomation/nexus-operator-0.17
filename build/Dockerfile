@@ -1,4 +1,4 @@
-FROM quay.io/operator-framework/ansible-operator:v0.17.0
+FROM quay.io/operator-framework/ansible-operator:v0.17.1
 
 # Copy OpenShift CLI
 COPY client/oc /usr/local/bin/
