@@ -1,7 +1,7 @@
 #!/bin/bash
-SDK_RELEASE=v0.17.1
+SDK_RELEASE=v0.17.2
 MINOR_RELEASE=0
-OCP_CLIENT_RELEASE=4.4.8
+OCP_CLIENT_RELEASE=4.6.21
 
 # Update latest Roles
 rm -rf roles
@@ -19,7 +19,7 @@ tar xzf openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz -C client
 rm -f openshift-client-linux-${OCP_CLIENT_RELEASE}.tar.gz
 
 # Now build the Operator
-operator-sdk build quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE}
+operator-sdk-0.17.1 build quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE}
 docker tag quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE} quay.io/gpte-devops-automation/nexus-operator:latest
 docker tag quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE} quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}
 docker push quay.io/gpte-devops-automation/nexus-operator:${SDK_RELEASE}.${MINOR_RELEASE}
