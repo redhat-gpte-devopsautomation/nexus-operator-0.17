@@ -7,6 +7,9 @@ OCP_CLIENT_RELEASE=4.6.21
 rm -rf roles
 mkdir roles
 git clone https://github.com/redhat-gpte-devopsautomation/ansible-operator-roles
+cd ansible-operator-roles
+git checkout v0.17.2
+cd ..
 
 cp -R ansible-operator-roles/roles/nexus-ocp ./roles
 cp ansible-operator-roles/playbooks/nexus.yaml ./playbook.yml
